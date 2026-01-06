@@ -186,14 +186,6 @@ local function apply_to_config(config)
 		mod_seperator = "-",
 	}
 
-	if not config.colors then
-    if config.color_scheme then
-      config.colors = wezterm.color.get_builtin_schemes()[config.color_scheme]
-    else
-      config.colors = wezterm.color.get_default_colors()
-    end
-	end
-
 	local colors = {
 		key_hint_seperator = config.colors.foreground,
 		key = config.colors.foreground,
@@ -228,24 +220,24 @@ local function apply_to_config(config)
 end
 
 local function set_default_keys(config)
-  if config.keys == nil then
-      config.keys = {}
-  end
-  table.insert(config.keys, {
-    key = "n",
-    mods = "ALT",
-    action = activate_mode("Scroll"),
-  })
-  table.insert(config.keys, {
-    key = "u",
-    mods = "ALT",
-    action = activate_mode("UI"),
-  })
-  table.insert(config.keys, {
-    key = "c",
-    mods = "ALT",
-    action = activate_mode("copy_mode"),
-  })
+	if config.keys == nil then
+		config.keys = {}
+	end
+	table.insert(config.keys, {
+		key = "n",
+		mods = "ALT",
+		action = activate_mode("Scroll"),
+	})
+	table.insert(config.keys, {
+		key = "u",
+		mods = "ALT",
+		action = activate_mode("UI"),
+	})
+	table.insert(config.keys, {
+		key = "c",
+		mods = "ALT",
+		action = activate_mode("copy_mode"),
+	})
 end
 
 return {
