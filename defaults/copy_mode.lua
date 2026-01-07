@@ -299,11 +299,7 @@ return {
 
 		-- Move by page
 		{ key = "d", mods = "CTRL", action = wezterm.action.CopyMode({ MoveByPage = 0.5 }) },
-		{
-			key = "u",
-			mods = "CTRL",
-			action = wezterm.action.CopyMode({ MoveByPage = -0.5 }),
-		},
+		{ key = "u", mods = "CTRL", action = wezterm.action.CopyMode({ MoveByPage = -0.5 }) },
 		{ key = "PageUp", action = wezterm.action.CopyMode("PageUp") },
 		{ key = "PageDown", action = wezterm.action.CopyMode("PageDown") },
 		{ key = "b", mods = "CTRL", action = wezterm.action.CopyMode("PageUp") },

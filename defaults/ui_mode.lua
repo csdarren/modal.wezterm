@@ -64,7 +64,7 @@ local function get_hint_status_text(hint_icons, hint_colors, mode_colors)
 		{ Text = hint_icons.key_hint_seperator },
 		-- ...
 		{ Foreground = { Color = hint_colors.key } },
-		{ Text = "-: " },
+		{ Text = "v/V: " },
 		{ Foreground = { Color = hint_colors.hint } },
 		{ Text = "Split" },
 		{ Foreground = { Color = hint_colors.key_hint_seperator } },
@@ -78,53 +78,9 @@ local function get_hint_status_text(hint_icons, hint_colors, mode_colors)
 		{ Text = hint_icons.key_hint_seperator },
 		-- ...
 		{ Foreground = { Color = hint_colors.key } },
-		{ Text = "r: " },
-		{ Foreground = { Color = hint_colors.hint } },
-		{ Text = "Rotate" },
-		{ Foreground = { Color = hint_colors.key_hint_seperator } },
-		{ Text = hint_icons.key_hint_seperator },
-		-- ...
-		{ Foreground = { Color = hint_colors.key } },
 		{ Text = "q: " },
 		{ Foreground = { Color = hint_colors.hint } },
 		{ Text = "Close pane" },
-		{ Foreground = { Color = hint_colors.key_hint_seperator } },
-		{ Text = hint_icons.key_hint_seperator },
-		-- ...
-		{ Foreground = { Color = hint_colors.key } },
-		{ Text = "t/T: " },
-		{ Foreground = { Color = hint_colors.hint } },
-		{ Text = "Open/Close tab" },
-		{ Foreground = { Color = hint_colors.key_hint_seperator } },
-		{ Text = hint_icons.key_hint_seperator },
-		-- ...
-		{ Foreground = { Color = hint_colors.key } },
-		{ Text = "H/Tab, L/S-Tab: " },
-		{ Foreground = { Color = hint_colors.hint } },
-		{ Text = "Next/Prev tab" },
-		{ Foreground = { Color = hint_colors.key_hint_seperator } },
-		{ Text = hint_icons.key_hint_seperator },
-		-- ...
-		{ Foreground = { Color = hint_colors.key } },
-		{ Text = "JK: " },
-		{ Foreground = { Color = hint_colors.hint } },
-		{ Text = "Move tab" },
-		{ Foreground = { Color = hint_colors.key_hint_seperator } },
-		{ Text = hint_icons.key_hint_seperator },
-		-- ...
-		{ Foreground = { Color = hint_colors.key } },
-		{ Text = "n: " },
-		{ Foreground = { Color = hint_colors.hint } },
-		{ Text = "Rename tab" },
-		{ Foreground = { Color = hint_colors.key_hint_seperator } },
-		{ Text = hint_icons.key_hint_seperator },
-		-- ...
-		{ Foreground = { Color = hint_colors.key } },
-		{ Text = "ALT" },
-		{ Text = hint_icons.mod_seperator },
-		{ Text = "t: " },
-		{ Foreground = { Color = hint_colors.hint } },
-		{ Text = "Tab nav" },
 		{ Foreground = { Color = hint_colors.key_hint_seperator } },
 		{ Text = hint_icons.key_hint_seperator },
 		-- ...
@@ -187,56 +143,16 @@ return {
 		{ key = "z", action = wezterm.action.TogglePaneZoomState },
 
 		-- Split pane
-		{ key = "-", action = wezterm.action.SplitVertical },
-		{ key = "_", mods = "SHIFT", action = wezterm.action.SplitHorizontal },
+		{ key = "v", action = wezterm.action.SplitVertical },
+		{ key = "V", mods = "SHIFT", action = wezterm.action.SplitHorizontal },
 
 		-- Close pane
-		{ key = "q", action = wezterm.action.CloseCurrentPane({ confirm = true }) },
-
-		-- Rotate panes
-		{ key = "r", action = act.RotatePanes("Clockwise") },
-		{ key = "R", action = act.RotatePanes("CounterClockwise") },
+		{ key = "q", action = wezterm.action.CloseCurrentPane({ confirm = false }) },
 
 		-- Selecting
 		{ key = "S", mods = "SHIFT", action = act.PaneSelect({}) },
 		-- Swap
 		{ key = "s", action = act.PaneSelect({ mode = "SwapWithActive" }) },
-
-		-- Tabs
-		{ key = "t", action = act.SpawnTab("CurrentPaneDomain") },
-		{ key = "T", mods = "SHIFT", action = wezterm.action.CloseCurrentTab({ confirm = true }) },
-
-		{ key = "H", mods = "SHIFT", action = act.ActivateTabRelative(-1) },
-		{ key = "L", mods = "SHIFT", action = act.ActivateTabRelative(1) },
-		{ key = "Tab", mods = "", action = act.ActivateTabRelative(1) },
-		{ key = "Tab", mods = "SHIFT", action = act.ActivateTabRelative(-1) },
-
-		{ key = "J", mods = "SHIFT", action = act.MoveTabRelative(-1) },
-		{ key = "K", mods = "SHIFT", action = act.MoveTabRelative(1) },
-
-		{ key = "t", mods = "ALT", action = wezterm.action.ShowTabNavigator },
-
-		{
-			key = "n",
-			action = act.Multiple({
-				act.PopKeyTable,
-				act.PromptInputLine({
-					description = "Enter new name for tab",
-					action = wezterm.action_callback(function(window, pane, name)
-						if name then
-							window:active_tab():set_title(name)
-						end
-						window:perform_action(
-							act.ActivateKeyTable({
-								name = "UI",
-								one_shot = false,
-							}),
-							pane
-						)
-					end),
-				}),
-			}),
-		},
 
 		-- Workspace
 		{ key = "w", action = act.SwitchWorkspaceRelative(1) },
@@ -268,11 +184,5 @@ return {
 		-- font size
 		{ key = "+", mods = "CTRL", action = wezterm.action.IncreaseFontSize },
 		{ key = "-", mods = "CTRL", action = wezterm.action.DecreaseFontSize },
-
-		-- toggle fullscreen
-		{
-			key = "f",
-			action = wezterm.action.ToggleFullScreen,
-		},
 	},
 }

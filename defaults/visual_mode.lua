@@ -36,18 +36,6 @@ local function get_hint_status_text(hint_icons, hint_colors, mode_colors)
 		{ Foreground = { Color = hint_colors.key_hint_seperator } },
 		{ Text = hint_icons.key_hint_seperator },
 		-- ...
-		{ Foreground = { Color = hint_colors.key } },
-		{ Text = "y: " },
-		{ Foreground = { Color = hint_colors.hint } },
-		{ Text = "Copy and exit" },
-		{ Foreground = { Color = hint_colors.key_hint_seperator } },
-		{ Text = hint_icons.key_hint_seperator },
-		-- ...
-		{ Foreground = { Color = hint_colors.key } },
-		{ Text = "hjkl: " },
-		{ Foreground = { Color = hint_colors.hint } },
-		{ Text = "Move " },
-		-- ...
 		{ Attribute = { Intensity = "Bold" } },
 		{ Foreground = { Color = mode_colors.bg } },
 		{ Text = hint_icons.left_seperator },

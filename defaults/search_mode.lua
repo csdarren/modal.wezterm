@@ -18,7 +18,7 @@ local function get_hint_status_text(hint_icons, hint_colors, mode_colors)
 		{ Text = hint_icons.mod_seperator },
 		{ Text = "p/n, 󰓢 : " },
 		{ Foreground = { Color = hint_colors.hint } },
-		{ Text = "Prev/Next result" },
+		{ Text = "Prev/Next" },
 		{ Foreground = { Color = hint_colors.key_hint_seperator } },
 		{ Text = hint_icons.key_hint_seperator },
 		-- ...
@@ -27,7 +27,7 @@ local function get_hint_status_text(hint_icons, hint_colors, mode_colors)
 		{ Text = hint_icons.mod_seperator },
 		{ Text = "r: " },
 		{ Foreground = { Color = hint_colors.hint } },
-		{ Text = "Cycle match type" },
+		{ Text = "Cycle match" },
 		{ Foreground = { Color = hint_colors.key_hint_seperator } },
 		{ Text = hint_icons.key_hint_seperator },
 		-- ...
@@ -36,21 +36,9 @@ local function get_hint_status_text(hint_icons, hint_colors, mode_colors)
 		{ Text = hint_icons.mod_seperator },
 		{ Text = "u: " },
 		{ Foreground = { Color = hint_colors.hint } },
-		{ Text = "Clear search" },
+		{ Text = "Clear" },
 		{ Foreground = { Color = hint_colors.key_hint_seperator } },
 		{ Text = hint_icons.key_hint_seperator },
-		-- ...
-		{ Foreground = { Color = hint_colors.key } },
-		{ Text = "Enter: " },
-		{ Foreground = { Color = hint_colors.hint } },
-		{ Text = "Accep pattern" },
-		{ Foreground = { Color = hint_colors.key_hint_seperator } },
-		{ Text = hint_icons.key_hint_seperator },
-		-- ...
-		{ Foreground = { Color = hint_colors.key } },
-		{ Text = "Esc: " },
-		{ Foreground = { Color = hint_colors.hint } },
-		{ Text = "End search" },
 		-- ...
 		{ Attribute = { Intensity = "Bold" } },
 		{ Foreground = { Color = mode_colors.bg } },
@@ -122,17 +110,5 @@ return {
 		{ key = "p", mods = "CTRL", action = wezterm.action.CopyMode("PriorMatch") },
 		{ key = "r", mods = "CTRL", action = wezterm.action.CopyMode("CycleMatchType") },
 		{ key = "u", mods = "CTRL", action = wezterm.action.CopyMode("ClearPattern") },
-		{
-			key = "PageUp",
-			mods = "NONE",
-			action = wezterm.action.CopyMode("PriorMatchPage"),
-		},
-		{
-			key = "PageDown",
-			mods = "NONE",
-			action = wezterm.action.CopyMode("NextMatchPage"),
-		},
-		{ key = "UpArrow", mods = "NONE", action = wezterm.action.CopyMode("PriorMatch") },
-		{ key = "DownArrow", mods = "NONE", action = wezterm.action.CopyMode("NextMatch") },
 	},
 }

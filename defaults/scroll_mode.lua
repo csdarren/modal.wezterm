@@ -90,6 +90,7 @@ return {
 		-- Cancel the mode by pressing escape
 		{ key = "Escape", action = modal.exit_mode("Scroll") },
 		{ key = "c", mods = "CTRL", action = modal.exit_mode("Scroll") },
+		{ key = "[", mods = "CTRL", action = modal.exit_mode("Scroll") },
 
 		{ key = "UpArrow", action = act.ScrollByLine(-1) },
 		{ key = "DownArrow", action = act.ScrollByLine(1) },
