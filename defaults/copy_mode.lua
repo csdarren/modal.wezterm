@@ -128,7 +128,7 @@ return {
 		},
 		{
 			key = "[",
-			mods = "LEADER",
+			mods = "CTRL",
 			action = wezterm.action_callback(function(window, pane)
 				if wezterm.GLOBAL.visual_mode then
 					wezterm.emit("modal.enter", "copy_mode", window, pane)
