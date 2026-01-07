@@ -100,6 +100,16 @@ return {
 			end),
 		},
 		{
+			key = "[",
+			mods = "CTRL",
+			action = wezterm.action_callback(function(window, pane)
+				wezterm.GLOBAL.search_mode = false
+				window:perform_action(modal.exit_mode("search_mode"), pane)
+				window:perform_action(modal.activate_mode("copy_mode"), pane)
+			end),
+		},
+
+		{
 			key = "c",
 			mods = "CTRL",
 			action = wezterm.action_callback(function(window, pane)

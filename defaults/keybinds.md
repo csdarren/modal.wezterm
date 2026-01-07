@@ -79,6 +79,7 @@
 |                 | Enter      | Accept Pattern                 | Enter copy mode with accepted pattern  |
 |                 | Escape     | Exit Search Mode               | Exit search mode and enter copy mode   |
 | CTRL            | c          | Exit Search Mode               | Exit search mode and enter copy mode   |
+| CTRL            | [          | Exit Search Mode               |                                         |
 | CTRL            | n          | Next Match                     | Go to the next search match            |
 | CTRL            | p          | Previous Match                 | Go to the previous search match        |
 | CTRL            | r          | Cycle Match Type               | Cycle through match types              |
@@ -94,6 +95,7 @@
 |-----------------|------------|---------------------------------|-----------------------------------------|
 |                 | Escape     | Exit Mode                       | Exit UI mode                            |
 | CTRL            | c          | Exit Mode                       | Exit UI mode                            |
+| CTRL            | [          | Exit Mode                       |                                         |
 |                 | h          | Activate Pane Left              | Move to left pane                       |
 |                 | j          | Activate Pane Down              | Move to down pane                       |
 |                 | k          | Activate Pane Up                | Move to up pane                         |

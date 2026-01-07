@@ -163,10 +163,8 @@ return {
 	get_hint_status_text = get_hint_status_text,
 	key_table = {
 		-- Cancel the mode by pressing escape
-		{
-			key = "Escape",
-			action = modal.exit_mode("UI"),
-		},
+		{ key = "Escape", action = modal.exit_mode("UI") },
+		{ key = "[", mods = "CTRL", action = modal.exit_mode("UI") },
 		{ key = "c", mods = "CTRL", action = modal.exit_mode("UI") },
 
 		-- Activate panes
