@@ -126,6 +126,27 @@ return {
 				end
 			end),
 		},
+		{
+			key = "[",
+			mods = "LEADER",
+			action = wezterm.action_callback(function(window, pane)
+				if wezterm.GLOBAL.visual_mode then
+					wezterm.emit("modal.enter", "copy_mode", window, pane)
+					window:perform_action(
+						wezterm.action.CopyMode({ SetSelectionMode = wezterm.GLOBAL.visual_mode }),
+						pane
+					)
+					wezterm.GLOBAL.visual_mode = nil
+				elseif wezterm.GLOBAL.search_mode then
+					wezterm.GLOBAL.search_mode = false
+					window:perform_action(modal.exit_mode("search_mode"), pane)
+					window:perform_action(modal.activate_mode("copy_mode"), pane)
+				else
+					wezterm.GLOBAL.search_mode = false
+					window:perform_action(modal.exit_mode("copy_mode"), pane)
+				end
+			end),
+		},
 
 		-- Move to start and end of line
 		{ key = "Enter", action = wezterm.action.CopyMode("MoveToStartOfNextLine") },
