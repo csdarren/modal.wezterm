@@ -195,7 +195,8 @@ local function apply_to_config(config)
 	}
 
 	local fg_status_color = config.colors.background
-	local status_text = require("ui_mode").get_hint_status_text(icons, colors, { fg = fg_status_color })
+	local status_text =
+		require("ui_mode").get_hint_status_text(icons, colors, { bg = fg_status_color, fg = fg_status_color })
 
 	add_mode("UI", require("ui_mode").key_table, status_text)
 
